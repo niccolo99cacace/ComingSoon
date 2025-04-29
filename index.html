@@ -2,29 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Por Tres Padel Pompei - Coming Soon</title>
   <style>
+    /* Background gradient animation */
     body {
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #031C2C, #FF3B59);
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #031C2C, #FF3B59, #031C2C, #FF3B59);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
       color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     h1 {
       font-size: 3rem;
-      letter-spacing: 3px;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      margin: 0;
+      letter-spacing: 4px;
+      animation: slideDown 1s ease-out;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Underline effect */
+    h1::after {
+      content: '';
+      display: block;
+      width: 80%;
+      height: 4px;
+      background: #FF3B59;
+      margin: 0.5rem auto 0;
+      animation: stretch 1s ease-out;
+    }
+
+    @keyframes stretch {
+      from { width: 0; }
+      to { width: 80%; }
     }
   </style>
 </head>
 <body>
-  <h1>COMING SOON</h1>
+  <div class="container">
+    <h1>Por Tres Padel Pompei</h1>
+    <h2>COMING SOON</h2>
+  </div>
 </body>
 </html>
